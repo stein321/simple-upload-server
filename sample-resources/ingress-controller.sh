@@ -1,0 +1,1 @@
+ helm -n nginx install nginx-ingress ingress-nginx/ingress-nginx

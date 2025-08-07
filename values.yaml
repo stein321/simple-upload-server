@@ -116,6 +116,7 @@ containerArgs:
   - "-addr=0.0.0.0:8080"
   - "-document_root=/widgetapi/data"
 pvc:
+  storageClassName: "docker-sc"
   size: 1Gi
 volumes:
   - name: datavol
