@@ -87,11 +87,11 @@ resources: {}
 
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 livenessProbe:
-  httpGet:
+  tcpSocket:
     path: /files
     port: http
 readinessProbe:
-  httpGet:
+  tcpSocket:
     path: /files
     port: http
 
@@ -107,16 +107,16 @@ envs:
   - name: TOKEN
     valueFrom:
       secretKeyRef:
-        name: read_write_tokens
+        name: read-write-tokens
         key: token
 containerArgs:
   - "-enable_auth"
   - "-read_write_tokens=${TOKEN}"
-  - "-max_upload_size=${UPLOAD_LIMIT:-1048576}"
+  - "-max_upload_size=1048576"
   - "-addr=0.0.0.0:8080"
   - "-document_root=/widgetapi/data"
 pvc:
-  size: 10Gi
+  size: 1Gi
 volumes:
   - name: datavol
     persistentVolumeClaim:
