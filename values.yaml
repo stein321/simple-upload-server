@@ -58,7 +58,7 @@ service:
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
-  enabled: true
+  enabled: false
   className: ""
   annotations: {}
     # kubernetes.io/ingress.class: nginx
@@ -111,7 +111,7 @@ envs:
         key: token
 containerArgs:
   - "-enable_auth"
-  - "-read_write_tokens=${TOKEN}"
+  - "-read_write_tokens=$(TOKEN)"
   - "-max_upload_size=1048576"
   - "-addr=0.0.0.0:8080"
   - "-document_root=/widgetapi/data"
@@ -125,7 +125,7 @@ volumes:
 
 volumeMounts:
  - name: datavol
-   mountPath: "/widetapi/data"
+   mountPath: "/widgetapi/data"
    readOnly: false
 
 nodeSelector: {}

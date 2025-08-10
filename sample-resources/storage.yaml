@@ -16,5 +16,5 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: "/Users/benstein/Projects/simple-upload-server/data/files" # Host path on MacOS
+    path: "" # Host path on MacOS
 ---
