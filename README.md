@@ -4,9 +4,6 @@
 
 
 
-
-
-
 # Steps
 
 1. `helm create small-helm-chart`
@@ -16,7 +13,12 @@
 
 curl -H "Host: chart-example.local" \
      -H "Authorization: Bearer mytoken" \
-    http://localhost/upload -Ffile=@helloworld.txt
+    http://localhost/upload -Ffile=@helloworld.txt 
+
+
+curl -H "Host: chart-example.local" \
+     -H "Authorization: Bearer mytoken" \
+    http://k8s-default-suploads-c386552b34-510508828.us-west-2.elb.amazonaws.com/upload -Ffile=@helloworld.txt
 
 
 Testing

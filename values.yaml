@@ -88,11 +88,9 @@ resources: {}
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 livenessProbe:
   tcpSocket:
-    path: /files
     port: http
 readinessProbe:
   tcpSocket:
-    path: /files
     port: http
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
@@ -101,7 +99,6 @@ autoscaling:
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
 
 envs:
   - name: TOKEN
@@ -116,7 +113,7 @@ containerArgs:
   - "-addr=0.0.0.0:8080"
   - "-document_root=/widgetapi/data"
 pvc:
-  storageClassName: "docker-sc"
+  storageClassName: "auto-ebs-sc"
   size: 1Gi
 volumes:
   - name: datavol

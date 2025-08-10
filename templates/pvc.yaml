@@ -4,7 +4,7 @@ metadata:
   name: uploads-pvc
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteOncePod
   volumeMode: Filesystem
   resources:
     requests:
